@@ -3,7 +3,7 @@ author: David G. Moore, Jr., <david@dgmjr.io>
 description: Logs the user in with the provided GITHUB_TOKEN
 
 branding:
-  icon: file-plus
+  icon: log-in
   color: green
 
 inputs:
