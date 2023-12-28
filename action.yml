@@ -8,17 +8,17 @@ branding:
 
 inputs:
   git-token:
-    type: string
     required: true
+    description: GitHub Token
 
 runs:
   using: composite
   steps:
-    - gh-auth-login-with-token
-    name: GH Login With Token
-    run: echo "${{ inputs.git-token }}" | gh auth login --with-token
-    shell: pwsh
-    - gh-auth-setup-git
-    name: GH Auth Setup Git
-    run: gh auth setup-git
-    shell: pwsh
+    - id: gh-auth-login-with-token
+      name: GH Login With Token
+      run: echo "${{ inputs.git-token }}" | gh auth login --with-token
+      shell: pwsh
+    - id: gh-auth-setup-git
+      name: GH Auth Setup Git
+      run: gh auth setup-git
+      shell: pwsh
