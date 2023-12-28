@@ -1,0 +1,24 @@
+name: GH Login With Token
+author: David G. Moore, Jr., <david@dgmjr.io>
+description: Logs the user in with the provided GITHUB_TOKEN
+
+branding:
+  icon: file-plus
+  color: green
+
+inputs:
+  git-token:
+    type: string
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - gh-auth-login-with-token
+    name: GH Login With Token
+    run: echo "${{ inputs.git-token }}" | gh auth login --with-token
+    shell: pwsh
+    - gh-auth-setup-git
+    name: GH Auth Setup Git
+    run: gh auth setup-git
+    shell: pwsh
